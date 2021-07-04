@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_api_flutter/api/api_call.dart';
 import 'package:news_api_flutter/model/news_model.dart';
+import 'package:news_api_flutter/widgets/listview_container.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -33,30 +34,9 @@ class _HomeScreenState extends State<HomeScreen> {
             return ListView.builder(
                 itemCount: snapshot.data!.articles.length,
                 itemBuilder: (context, index) {
-                  var article= snapshot.data!.articles[index];
-                  return Container(
-                    height: 100,
-                    //width: 100,
-                    child: Row(
-                      children: [
-                      Card(
-                        clipBehavior: Clip.antiAlias,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-                        child: AspectRatio(aspectRatio: 1,
-                        child: Image.network(article.urlToImage,fit: BoxFit.cover,),
-                        ),
-                      ),
-                        Flexible(
-                          child: Column(
-                            children: [
-                              Text(article.title,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
-                              Text(article.description,overflow: TextOverflow.ellipsis,maxLines: 3,),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  );
+                  var article = snapshot.data!.articles[index];
+                  return CustomListViewContainer(article: article);
+                  
                 });
           } else
             return Center(

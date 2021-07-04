@@ -41,7 +41,7 @@ class Article {
         required this.content,
     });
 
-  // late Source source;
+   //late Source source;
     String author;
     String title;
     String description;
@@ -62,8 +62,8 @@ class Article {
     );
 
     Map<String, dynamic> toJson() => {
-      //  "source": source.toJson(),
-        // ignore: unnecessary_null_comparison
+       // "source": source.toJson(),
+      //  ignore: unnecessary_null_comparison
         "author": author == null ? 'null' : author,
         "title": title,
         "description": description,
