@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_api_flutter/widgets/custom_row.dart';
 import 'package:url_launcher/link.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 // ignore: must_be_immutable
 class NewsDetails extends StatelessWidget {

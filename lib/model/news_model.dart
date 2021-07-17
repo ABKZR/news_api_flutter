@@ -31,7 +31,7 @@ class NewsModel {
 
 class Article {
     Article({
-     //   required this.source,
+       required this.source,
         required this.author,
         required this.title,
         required this.description,
@@ -41,7 +41,7 @@ class Article {
         required this.content,
     });
 
-   //late Source source;
+   late Source source;
     String author;
     String title;
     String description;
@@ -51,7 +51,7 @@ class Article {
     String content;
 
     factory Article.fromJson(Map<String, dynamic> json) => Article(
-       // source: Source.fromJson(json["source"]),
+       source: Source.fromJson(json["source"]),
         author: json["author"] == null ? 'null' : json["author"],
         title: json["title"],
         description: json["description"],
@@ -62,7 +62,7 @@ class Article {
     );
 
     Map<String, dynamic> toJson() => {
-       // "source": source.toJson(),
+       "source": source.toJson(),
       //  ignore: unnecessary_null_comparison
         "author": author == null ? 'null' : author,
         "title": title,
@@ -74,25 +74,25 @@ class Article {
     };
 }
 
-// class Source {
-//     Source({
-//         required this.id,
-//         required this.name,
-//     });
+class Source {
+    Source({
+        required this.id,
+        required this.name,
+    });
 
-//     Id id;
-//     Name name;
+    Id? id;
+    Name? name;
 
-//     factory Source.fromJson(Map<String, dynamic> json) => Source(
-//         id: idValues.map[json["id"]],
-//         name: nameValues.map[json["name"]],
-//     );
+    factory Source.fromJson(Map<String, dynamic> json) => Source(
+        id: idValues.map[json["id"]],
+        name: nameValues.map[json["name"]],
+    );
 
-//     Map<String, dynamic> toJson() => {
-//         "id": idValues.reverse[id],
-//         "name": nameValues.reverse[name],
-//     };
-// }
+    Map<String, dynamic> toJson() => {
+        "id": idValues.reverse[id],
+        "name": nameValues.reverse[name],
+    };
+}
 
 enum Id { THE_WALL_STREET_JOURNAL }
 
